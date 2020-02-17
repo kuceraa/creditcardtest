@@ -7,15 +7,22 @@
   
   <title>CSCI 260 -- Homework 5: Learn Javascript</title>
   <script>
+	  
     function cardValidation(cardNumber){
       let output = ' ';
-      if(cardNumber.length < 13 or cardNumber.length >16){
+      if(cardNumber.length < 13 || cardNumber.length >16){
         output = 'Incorrect Card Number Length';
       }
       let doubleOdd = 0;
       let nonDouble=0;
       for(let i=1; i <= cardNumber.length; i+2){
-        doubleOdd=doubleOdd + (2*i);
+        i = 2*i;
+        if(i >=10){
+          Reminder = i % 10;
+	  Sum = Sum+ Reminder;
+	  i = i / 10;
+        }
+        doubleOdd = doubleOdd + i;
       }
       for(let i=2; i<=carNumber.length; i+2){
         nonDouble=nonDouble + i;
@@ -32,6 +39,10 @@
 
 <body>
   <h3>Credit Card Validation</h3>
+  <form>
+	  <label> Enter Credit Card Number </label>
+	  <input type = integer
+	  	id = "cardNumber" />
   <button onclick="cardValidation(cardNumber)">Run it</button>      
 </body>
 </html>
